@@ -9,7 +9,7 @@ import (
 
 func main() {
 	db.Connect()
-	db.DB.AutoMigrate(&objects.Book{})
+	db.DB.AutoMigrate(&objects.Book{}, &objects.User{})
 
 	r := gin.Default()
 
