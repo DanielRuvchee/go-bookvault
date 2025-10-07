@@ -9,9 +9,9 @@ export default function RegisterPage() {
     const router = useRouter()
 
     const handleSubmit = async (e) => {
-        e.pereventDefault()
+        e.preventDefault()
         try {
-            await API.post("/auth/register", form)
+            await API.post("/register", form)
             router.push("/login")
         } catch (err) {
             alert("Registration failed")

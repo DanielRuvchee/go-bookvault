@@ -11,7 +11,7 @@ export default function LoginPage() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const res = await API.post("/auth/login", form)
+            const res = await API.post("/login", form)
             localStorage.setItem("token", res.data.token)
             router.push("/dashboard")
         } catch {
