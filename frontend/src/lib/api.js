@@ -1,11 +1,13 @@
 import axios from "axios"
 
+const baseURL = process.env.NEXT_PUBLIC_API_URL || process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : "http://localhost:8080"
+
 const API = axios.create({
-    baseURL: "http://localhost:8080", // Go backend URL
+    baseURL,
 })
 
 API.interceptors.request.use((config) => {
-    const token = localStorage.getItem("token")
+    const token = typeof window !== "undefined" ? localStorage.getItem("token") : null
     if (token) config.headers.Authorization = `Bearer ${token}`
     return config
 })

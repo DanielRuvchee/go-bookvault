@@ -5,7 +5,8 @@ import Separator from "@/components/Separator"
 import MultilayerCardV_1 from "@/components/MultilayerCardV_1"
 
 async function getBooks() {
-  const res = await fetch("http://localhost:8080/books", { cache: "no-store" })
+  const apiBase = process.env.NEXT_PUBLIC_API_URL || (process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : "http://localhost:8080")
+  const res = await fetch(`${apiBase}/books`, { cache: "no-store" })
   if (!res.ok) return []
   return res.json()
 }
