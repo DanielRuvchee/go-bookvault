@@ -5,6 +5,7 @@ import (
 	"github.com/DanielRuvchee/go-bookvault/db"
 	"github.com/DanielRuvchee/go-bookvault/middleware"
 	"github.com/DanielRuvchee/go-bookvault/objects"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -15,9 +16,17 @@ func main() {
 	r := gin.Default()
 
 	//Public
-	r.GET("/register", controller.Register)
-	r.GET("/login", controller.Login)
+	r.POST("/register", controller.Register)
+	r.POST("/login", controller.Login)
 	r.GET("/books", controller.GetBooks)
+
+	r.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"http://localhost:3000"},
+		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},
+		ExposeHeaders:    []string{"Content-Length"},
+		AllowCredentials: true,
+	}))
 
 	//Protected
 	auth := r.Group("/")

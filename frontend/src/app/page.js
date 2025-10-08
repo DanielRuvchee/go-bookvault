@@ -16,7 +16,7 @@ export default async function Home() {
   return (
     <div className="min-h-screen px-6 py-8">
       <header className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold">Daniel's Book Vault</h1>
+        <h1 className="text-2xl font-semibold">Daniel Ruvche Book Vault</h1>
         <div className="flex items-center gap-3">
           <Link href="/login">
             <Button_v1>
