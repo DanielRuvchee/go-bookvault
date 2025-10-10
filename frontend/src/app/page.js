@@ -3,6 +3,7 @@ import BlurIn from "@/components/BlurIn"
 import Button_v1 from "@/components/Button_v1"
 import Separator from "@/components/Separator"
 import MultilayerCardV_1 from "@/components/MultilayerCardV_1"
+import CarouselDemo from "@/components/CarouselDemo"
 
 async function getBooks() {
   const apiBase = process.env.NEXT_PUBLIC_API_URL || (process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : "http://localhost:8080")
@@ -45,6 +46,10 @@ export default async function Home() {
 
       <div className="mt-16">
         <Separator gradient />
+      </div>
+
+      <div className="mt-8">
+        <CarouselDemo />
       </div>
 
       <main className="mt-12">
