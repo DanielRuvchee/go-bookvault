@@ -1,7 +1,7 @@
-# Go RESTful API with JWT Authentication -  In Progres!
+# Go + NextJS RESTful API with JWT Authentication -  In Progres!
 # https://ruvche-bookvault.vercel.app/
 
-This project is a production-ready RESTful API built in Go (Golang) following a clean and scalable architecture.
+This project is a production-ready RESTful API built in Go (Golang) for the backend and NextJS for the Frontend, following a clean and scalable architecture.
 It includes JWT authentication, user login and registration, and CRUD operations for managing book vault.
 
 ---
@@ -24,7 +24,8 @@ It includes JWT authentication, user login and registration, and CRUD operations
 ## Technologies Used
 
 * **Go (Golang)** — Backend language
+* **NextJS** — Frontend framework
 * **Gin Gonic** — Web framework for building the API
 * **GORM** — ORM for interacting with PostgreSQL
 * **JWT (JSON Web Tokens)** — Authentication
-* **Postgre
+* **Postgre**
