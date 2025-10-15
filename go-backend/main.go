@@ -15,11 +15,6 @@ func main() {
 
 	r := gin.Default()
 
-	//Public
-	r.POST("/register", controller.Register)
-	r.POST("/login", controller.Login)
-	r.GET("/books", controller.GetBooks)
-
 	r.Use(cors.New(cors.Config{
 		AllowOrigins:     []string{"http://localhost:3000"},
 		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
@@ -27,6 +22,11 @@ func main() {
 		ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: true,
 	}))
+
+	//Public
+	r.POST("/register", controller.Register)
+	r.POST("/login", controller.Login)
+	r.GET("/books", controller.GetBooks)
 
 	//Protected
 	auth := r.Group("/")
