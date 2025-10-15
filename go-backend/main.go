@@ -16,7 +16,7 @@ func main() {
 	r := gin.Default()
 
 	r.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"http://localhost:3000"},
+		AllowOrigins:     []string{"http://localhost:3000", "http://127.0.0.1:3000", "https://ruvche-bookvault.vercel.app"},
 		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 		AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},
 		ExposeHeaders:    []string{"Content-Length"},
@@ -31,6 +31,7 @@ func main() {
 	//Protected
 	auth := r.Group("/")
 	auth.Use(middleware.AuthMiddleware())
+	auth.GET("/books/mine", controller.GetUserBooks)
 	auth.POST("/books", controller.CreateBook)
 	auth.GET("/books/:id", controller.GetBook)
 	auth.PUT("/books/:id", controller.UpdateBook)

@@ -13,6 +13,10 @@ func CreateBook(book objects.Book) error {
 	return repository.CreateBook(&book)
 }
 
+func GetBooksByUserID(userID uint) ([]objects.Book, error) {
+	return repository.GetBooksByUserID(userID)
+}
+
 func GetBookByID(id uint) (objects.Book, error) {
 	return repository.GetBookById(id)
 }

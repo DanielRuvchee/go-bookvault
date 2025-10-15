@@ -15,6 +15,12 @@ func CreateBook(book *objects.Book) error {
 	return db.DB.Create(book).Error
 }
 
+func GetBooksByUserID(userID uint) ([]objects.Book, error) {
+	var books []objects.Book
+	result := db.DB.Where("user_id = ?", userID).Find(&books)
+	return books, result.Error
+}
+
 func GetBookById(id uint) (objects.Book, error) {
 	var book objects.Book
 	result := db.DB.First(&book, id)

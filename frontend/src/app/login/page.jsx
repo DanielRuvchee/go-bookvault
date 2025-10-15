@@ -18,7 +18,7 @@ export default function LoginPage() {
         try {
             const res = await API.post("/login", form)
             localStorage.setItem("token", res.data.token)
-            router.push("/dashboard")
+            router.push("/")
         } catch (err) {
             setError(err.response?.data?.error || "Invalid credentials")
         } finally {

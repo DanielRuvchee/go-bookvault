@@ -18,6 +18,22 @@ func GetBooks(c *gin.Context) {
 	c.JSON(http.StatusOK, books)
 }
 
+func GetUserBooks(c *gin.Context) {
+	uid, ok := c.Get("userID")
+	if !ok {
+		c.JSON(http.StatusUnauthorized, gin.H{"error": "unauthorized"})
+		return
+	}
+
+	userID := uid.(uint)
+	books, err := services.GetBooksByUserID(userID)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, books)
+}
+
 func CreateBook(c *gin.Context) {
 	var book objects.Book
 	if err := c.ShouldBindJSON(&book); err != nil {

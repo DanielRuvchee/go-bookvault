@@ -7,6 +7,7 @@ type Book struct {
 	Title       string    `json:"title"`
 	Author      string    `json:"Author"`
 	Description string    `json:"Description"`
+	UserID      uint      `json:"user_id"`
 	CreatedAt   time.Time `json:"created_at"`
 	UpdatedAt   time.Time `json:"updated_at"`
 }
