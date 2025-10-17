@@ -109,6 +109,10 @@ export default function Home() {
 
             {!isAuthed && (
                 <>
+                    <div className="mt-8">
+                        <Separator gradient />
+                    </div>
+
                     <section className="min-h-screen flex flex-col items-center justify-center text-center">
                         <BlurIn>
                             Your personal vault for discovering, tracking, and cherishing books.
